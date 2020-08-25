@@ -91,7 +91,3 @@ class TestImageManager(unittest.TestCase):
 		mock_image_load.assert_called_once_with(self.image_filepath)
 		mock_transform_scale.assert_called_once_with(self.image_surface, (50, 50))
 		mock_transform_flip.assert_called_once_with(self.image_surface, True, False)
-
-
-if __name__ == '__main__':
-	unittest.main()

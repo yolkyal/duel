@@ -28,7 +28,3 @@ class TestCollisionUtils(unittest.TestCase):
 		self.assertTrue(collision_utils.is_rect_pt_collision(rect, (110, 110)))
 		self.assertFalse(collision_utils.is_rect_pt_collision(rect, (111, 110)))
 		self.assertFalse(collision_utils.is_rect_pt_collision(rect, (110, 111)))
-		
-
-if __name__ == '__main__':
-	unittest.main()

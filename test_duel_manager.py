@@ -80,7 +80,3 @@ class TestDuelManager(unittest.TestCase):
 		self.duel_manager.update()
 		self.unit2.deflect.assert_not_called()
 		self.unit1.damage.assert_called_once()
-
-
-if __name__ == '__main__':
-	unittest.main()

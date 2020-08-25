@@ -27,7 +27,3 @@ class ArenaControlTest(unittest.TestCase):
 		e = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_l)
 		self.arena_control.handle_event(e)
 		self.arena.thrust.assert_called_once_with(arena.PLAYER_1)
-
-
-if __name__ == '__main__':
-	unittest.main()

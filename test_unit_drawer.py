@@ -34,7 +34,3 @@ class TestUnitDrawer(unittest.TestCase):
 
 		# THEN
 		self.d_surf.blit.assert_called_once_with(self.image_2, (self.unit.pos[0], self.unit.pos[1]))
-
-
-if __name__ == '__main__':
-	unittest.main()

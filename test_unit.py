@@ -46,9 +46,21 @@ class TestUnit(unittest.TestCase):
 		self.unit.update()
 		self.assertEqual(unit.STATE_NEUTRAL, self.unit.get_state())
 
+	def testDamage(self):
+		self.unit.damage()
+		self.assertEqual(unit.STATE_DAMAGED, self.unit.get_state())
+
+		time.sleep(0.3)
+		self.unit.update()
+		self.assertEqual(unit.STATE_NEUTRAL, self.unit.get_state())
+
+	def testDeflect(self):
+		self.unit.deflect()
+		self.assertEqual(unit.STATE_DEFLECTED, self.unit.get_state())
+
+		time.sleep(1)
+		self.unit.update()
+		self.assertEqual(unit.STATE_NEUTRAL, self.unit.get_state())
+
 	def testRect(self):
 		self.assertEqual((self.pos[0], self.pos[1], self.dimensions[0], self.dimensions[1]), self.unit.get_rect())
-
-
-if __name__ == '__main__':
-	unittest.main()

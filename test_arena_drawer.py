@@ -24,7 +24,3 @@ class TestArenaDrawer(unittest.TestCase):
 		self.d_surf.blit.assert_called_once_with(self.background_image, (0, 0))
 		self.unit_drawer1.draw.assert_called_once_with(self.d_surf, self.unit_1)
 		self.unit_drawer2.draw.assert_called_once_with(self.d_surf, self.unit_2)
-
-
-if __name__ == '__main__':
-	unittest.main()

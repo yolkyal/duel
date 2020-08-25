@@ -29,9 +29,3 @@ class TestTimeFSM(unittest.TestCase):
 		time.sleep(0.2)
 		fsm.update()
 		self.assertEqual('s1', fsm.state)
-
-
-
-if __name__ == '__main__':
-	unittest.main()
-	
