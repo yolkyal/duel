@@ -2,9 +2,9 @@ import unittest, time
 import tfsm
 
 
-class TestTimeFSM(unittest.TestCase):
+class TestTFSM(unittest.TestCase):
 	def testInputTransitions(self):
-		fsm = tfsm.TFSM('s1', [('s1', 'input1', 's2'), ('s2', 'input2', 's1')])
+		fsm = tfsm.TFSM([('s1', 'input1', 's2'), ('s2', 'input2', 's1')])
 
 		self.assertEqual('s1', fsm.state)
 
@@ -18,7 +18,7 @@ class TestTimeFSM(unittest.TestCase):
 		self.assertEqual('s1', fsm.state)
 
 	def testTimeTransitions(self):
-		fsm = tfsm.TFSM('s1', [('s1', 0.1, 's2'), ('s2', 0.2, 's1')])
+		fsm = tfsm.TFSM([('s1', '0.1', 's2'), ('s2', '0.2', 's1')])
 
 		self.assertEqual('s1', fsm.state)
 

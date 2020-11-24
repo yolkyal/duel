@@ -7,6 +7,8 @@ from arena_drawer import ArenaDrawer
 from arena_control import ArenaControl
 from duel_manager import DuelManager
 from image_manager import ImageManager
+from csv_tuple_parser import CsvTupleParser
+from tfsm import TFSM
 
 def ai_func(unit1, unit2):
 	if unit1.get_state() == unit.STATE_NEUTRAL:
@@ -51,9 +53,14 @@ def main():
 		unit.STATE_DEFLECT : image_manager.image('GUARD').size((384, 288)).flipped().get(),
 		unit.STATE_DEFLECTED : image_manager.image('DEFLECTED').size((384, 288)).flipped().get(),
 		unit.STATE_DAMAGED : image_manager.image('DAMAGED').size((384, 288)).flipped().get()})
+		
+	csv_tuple_parser = CsvTupleParser()
+	transitions = csv_tuple_parser.parse('resources/unit_transitions.csv')
+	unit_tfsm1 = TFSM(transitions)
+	unit_tfsm2 = TFSM(transitions)
 
-	unit_1 = Unit((-20, 124), (384, 288))
-	unit_2 = Unit((140, 124), (384, 288))
+	unit_1 = Unit((-20, 124), (384, 288), unit_tfsm1)
+	unit_2 = Unit((140, 124), (384, 288), unit_tfsm2)
 	arena = Arena(unit_1, unit_2, ai_func)
 	arena_drawer = ArenaDrawer(unit_drawer_1, unit_drawer_2, image_manager.image('BACKGROUND').size((500, 500)).get())
 	arena_control = ArenaControl(arena)
