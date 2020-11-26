@@ -7,7 +7,7 @@ class TestCsvTupleParser(unittest.TestCase):
 		self.csv_tuple_parser = csv_tuple_parser.CsvTupleParser()
 		
 	def testParse(self):
-		file = 'resources/tuples_test.csv'
+		file = 'data/tuples_test.csv'
 		
 		tuples = self.csv_tuple_parser.parse(file)
 		

@@ -22,15 +22,15 @@ def ai_func(unit1, unit2):
 
 def main():
 	image_manager = ImageManager()
-	image_manager.store('images/background.png', 'BACKGROUND')
-	image_manager.store('images/unit_neutral.png', 'NEUTRAL')
-	image_manager.store('images/unit_guard.png', 'GUARD')
-	image_manager.store('images/unit_attack.png', 'ATTACK')
-	image_manager.store('images/unit_attack_prepare.png', 'ATTACK_PREPARE')
-	image_manager.store('images/unit_thrust_prepare.png', 'THRUST_PREPARE')
-	image_manager.store('images/unit_thrust.png', 'THRUST')
-	image_manager.store('images/unit_deflected.png', 'DEFLECTED')
-	image_manager.store('images/unit_damaged.png', 'DAMAGED')
+	image_manager.store('data/images/background.png', 'BACKGROUND')
+	image_manager.store('data/images/unit_neutral.png', 'NEUTRAL')
+	image_manager.store('data/images/unit_guard.png', 'GUARD')
+	image_manager.store('data/images/unit_attack.png', 'ATTACK')
+	image_manager.store('data/images/unit_attack_prepare.png', 'ATTACK_PREPARE')
+	image_manager.store('data/images/unit_thrust_prepare.png', 'THRUST_PREPARE')
+	image_manager.store('data/images/unit_thrust.png', 'THRUST')
+	image_manager.store('data/images/unit_deflected.png', 'DEFLECTED')
+	image_manager.store('data/images/unit_damaged.png', 'DAMAGED')
 
 	unit_drawer_1 = UnitDrawer({
 		unit.STATE_NEUTRAL : image_manager.image('NEUTRAL').size((384, 288)).get(),
@@ -55,12 +55,10 @@ def main():
 		unit.STATE_DAMAGED : image_manager.image('DAMAGED').size((384, 288)).flipped().get()})
 		
 	csv_tuple_parser = CsvTupleParser()
-	transitions = csv_tuple_parser.parse('resources/unit_transitions.csv')
-	unit_tfsm1 = TFSM(transitions)
-	unit_tfsm2 = TFSM(transitions)
+	unit_transitions = csv_tuple_parser.parse('data/unit_transitions.csv')
 
-	unit_1 = Unit((-20, 124), (384, 288), unit_tfsm1)
-	unit_2 = Unit((140, 124), (384, 288), unit_tfsm2)
+	unit_1 = Unit((-20, 124), (384, 288), TFSM(unit_transitions))
+	unit_2 = Unit((140, 124), (384, 288), TFSM(unit_transitions))
 	arena = Arena(unit_1, unit_2, ai_func)
 	arena_drawer = ArenaDrawer(unit_drawer_1, unit_drawer_2, image_manager.image('BACKGROUND').size((500, 500)).get())
 	arena_control = ArenaControl(arena)
