@@ -1,5 +1,5 @@
 import unittest, time
-import tfsm
+from duel import tfsm
 
 
 class TestTimeFSM(unittest.TestCase):

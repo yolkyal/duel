@@ -1,5 +1,5 @@
+from duel import arena
 import pygame
-import arena
 
 DEFAULT_MOVE = 25
 

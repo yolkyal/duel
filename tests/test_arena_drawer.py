@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-import arena_drawer
+from duel import arena_drawer
 
 
 class TestArenaDrawer(unittest.TestCase):

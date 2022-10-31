@@ -1,4 +1,4 @@
-import unit
+from duel import unit
 
 class DuelManager:
 	def __init__(self, unit1, unit2):

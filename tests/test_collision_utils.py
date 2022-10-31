@@ -1,5 +1,5 @@
 import unittest
-import collision_utils
+from duel import collision_utils
 
 
 class TestCollisionUtils(unittest.TestCase):

@@ -1,5 +1,5 @@
 import unittest
-import unit, arena
+from duel import unit, arena
 from unittest import mock
 
 

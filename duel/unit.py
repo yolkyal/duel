@@ -1,4 +1,4 @@
-import tfsm
+from duel import tfsm
 
 STATE_NEUTRAL = 0
 STATE_ATTACK = 1

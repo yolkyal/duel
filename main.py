@@ -1,12 +1,12 @@
 import pygame, sys
-import unit
-from unit import Unit
-from unit_drawer import UnitDrawer
-from arena import Arena
-from arena_drawer import ArenaDrawer
-from arena_control import ArenaControl
-from duel_manager import DuelManager
-from image_manager import ImageManager
+from duel import unit
+from duel.unit import Unit
+from duel.unit_drawer import UnitDrawer
+from duel.arena import Arena
+from duel.arena_drawer import ArenaDrawer
+from duel.arena_control import ArenaControl
+from duel.duel_manager import DuelManager
+from duel.image_manager import ImageManager
 
 def ai_func(unit1, unit2):
 	if unit1.get_state() == unit.STATE_NEUTRAL:
@@ -20,15 +20,15 @@ def ai_func(unit1, unit2):
 
 def main():
 	image_manager = ImageManager()
-	image_manager.store('images/background.png', 'BACKGROUND')
-	image_manager.store('images/unit_neutral.png', 'NEUTRAL')
-	image_manager.store('images/unit_guard.png', 'GUARD')
-	image_manager.store('images/unit_attack.png', 'ATTACK')
-	image_manager.store('images/unit_attack_prepare.png', 'ATTACK_PREPARE')
-	image_manager.store('images/unit_thrust_prepare.png', 'THRUST_PREPARE')
-	image_manager.store('images/unit_thrust.png', 'THRUST')
-	image_manager.store('images/unit_deflected.png', 'DEFLECTED')
-	image_manager.store('images/unit_damaged.png', 'DAMAGED')
+	image_manager.store('duel/images/background.png', 'BACKGROUND')
+	image_manager.store('duel/images/unit_neutral.png', 'NEUTRAL')
+	image_manager.store('duel/images/unit_guard.png', 'GUARD')
+	image_manager.store('duel/images/unit_attack.png', 'ATTACK')
+	image_manager.store('duel/images/unit_attack_prepare.png', 'ATTACK_PREPARE')
+	image_manager.store('duel/images/unit_thrust_prepare.png', 'THRUST_PREPARE')
+	image_manager.store('duel/images/unit_thrust.png', 'THRUST')
+	image_manager.store('duel/images/unit_deflected.png', 'DEFLECTED')
+	image_manager.store('duel/images/unit_damaged.png', 'DAMAGED')
 
 	unit_drawer_1 = UnitDrawer({
 		unit.STATE_NEUTRAL : image_manager.image('NEUTRAL').size((384, 288)).get(),

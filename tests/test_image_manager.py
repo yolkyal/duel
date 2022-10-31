@@ -1,6 +1,6 @@
 import unittest
-import image_manager
 from unittest import mock
+from duel import image_manager
 
 
 class TestImageManager(unittest.TestCase):

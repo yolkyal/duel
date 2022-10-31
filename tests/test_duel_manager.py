@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-import duel_manager, unit
+from duel import duel_manager, unit
 
 
 class TestDuelManager(unittest.TestCase):

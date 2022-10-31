@@ -1,6 +1,6 @@
 import unittest, pygame
 from unittest import mock
-import arena, arena_control
+from duel import arena, arena_control
 
 
 class ArenaControlTest(unittest.TestCase):

@@ -1,5 +1,5 @@
 import unittest, time
-import unit
+from duel import unit
 
 
 class TestUnit(unittest.TestCase):
