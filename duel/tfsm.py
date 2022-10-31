@@ -1,11 +1,11 @@
 import time
 
 class TFSM:
-	def __init__(self, start_state, transitions):
-		self.state = start_state
+	def __init__(self, transitions):
+		self.state = transitions[0][0]
 		self.time_state_entered = time.time()
 		self.input_transitions = [transition for transition in transitions if type(transition[1]) is str]
-		self.time_transitions = [transition for transition in transitions if type(transition[1]) in [int, float]]
+		self.time_transitions = [(transition[0], float(transition[1]), transition[2]) for transition in transitions if transition[1][0].isdigit()]
 
 	def set_state(self, state):
 		self.state = state

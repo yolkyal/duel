@@ -37,4 +37,3 @@ class ImageGetParams:
 
 	def get(self):
 		return self.image_manager.get(self.image_id, self._flipped, self._size)
-
